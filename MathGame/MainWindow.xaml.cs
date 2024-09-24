@@ -19,6 +19,13 @@ namespace MathGame
         public MainWindow()
         {
             InitializeComponent();
+
+            SetUpGame();
+        }
+
+        private void SetUpGame()
+        {
+            throw new NotImplementedException();
         }
     }
 }
