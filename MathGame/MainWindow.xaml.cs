@@ -47,5 +47,30 @@ namespace MathGame
                 animalEmoji.RemoveAt(index);
             }
         }
+
+        TextBlock lastTextBlockClicked;
+        bool findingMath = false;
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            if (findingMath == false)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                lastTextBlockClicked = textBlock;
+                findingMath = true;
+            }
+
+            else if (textBlock.Text == lastTextBlockClicked.Text)
+            {
+                textBlock.Visibility = Visibility.Hidden;
+                findingMath = false;
+            }
+
+            else
+            {
+                lastTextBlockClicked.Visibility = Visibility.Visible;
+                findingMath = false;
+            }
+        }
     }
 }
