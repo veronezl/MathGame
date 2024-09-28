@@ -59,10 +59,14 @@ namespace MathGame
 
                 foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
                 {
-                    int index = random.Next(animalEmoji.Count);
-                    string nextEmoji = animalEmoji[index];
-                    textBlock.Text = nextEmoji;
-                    animalEmoji.RemoveAt(index);
+                    if (textBlock.Name != "timeTextBlock")
+                    {
+                        textBlock.Visibility = Visibility.Visible;
+                        int index = random.Next(animalEmoji.Count);
+                        string nextEmoji = animalEmoji[index];
+                        textBlock.Text = nextEmoji;
+                        animalEmoji.RemoveAt(index);
+                    }
                 }
             }
 
