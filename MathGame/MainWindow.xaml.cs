@@ -68,6 +68,10 @@ namespace MathGame
                         animalEmoji.RemoveAt(index);
                     }
                 }
+
+                timer.Start();
+                tenthsOfSecondsElapsed = 0;
+                findingMath = 0;
             }
 
             TextBlock lastTextBlockClicked;
@@ -88,7 +92,14 @@ namespace MathGame
                     findingMath = false;
                 }
 
-                else
+                else if (textBlock.Text == lastTextBlockClicked.Text)
+                {
+                    matchesFound++;
+                    textBlock.Visibility = Visibility.Hidden;
+                    findingMath = false;
+                }
+
+            else
                 {
                     lastTextBlockClicked.Visibility = Visibility.Visible;
                     findingMath = false;
